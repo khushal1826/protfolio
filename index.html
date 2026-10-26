@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khushal Dhaka | Personal Portfolio</title>
+  <meta name="description" content="Personal portfolio of Khushal Dhaka: projects, skills and an AI chatbot." />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // Apply saved theme before paint to avoid a flash
+    try {
+      var t = localStorage.getItem("theme");
+      document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  </script>
+</head>
+<body>
+  <header class="navbar">
+    <a href="#home" class="brand" id="brandName">Khushal Dhaka</a>
+    <div class="nav-actions">
+      <nav id="navMenu" class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#chatbot">AI Chatbot</a>
+      </nav>
+      <button id="menuToggle" class="icon-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle light and dark mode">&#9728;&#65039;</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <p class="hello">Hello, I'm</p>
+      <h1 id="heroName">Khushal Dhaka</h1>
+      <h2 id="heroRole">Aspiring Developer</h2>
+      <p class="tagline" id="heroTagline"></p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View My Projects</a>
+        <a id="githubBtn" href="#" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Profile</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p class="about-text" id="aboutText"></p>
+      <p class="muted" id="aboutLocation"></p>
+      <h3>Education</h3>
+      <div class="edu-card">
+        <strong id="eduDegree"></strong>
+        <span class="muted" id="eduSchool"></span>
+      </div>
+    </section>
+
+    <section id="skills" class="section alt">
+      <h2>Skills</h2>
+      <div class="pill-row" id="skillList"></div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>My Projects</h2>
+      <input id="projectSearch" class="search" type="search" placeholder="Search by name or technology (e.g. Python, Quiz, Book)" aria-label="Search projects" />
+      <div class="filter-row" id="filterRow"></div>
+      <p class="muted" id="resultCount"></p>
+      <div id="projectGrid" class="project-grid"></div>
+      <p id="noResults" class="muted no-results" hidden>No projects match your search. Try another name or technology.</p>
+    </section>
+
+    <section id="contact" class="section alt">
+      <h2>Contact Information</h2>
+      <div class="contact-list">
+        <div class="contact-item"><span class="muted">Email</span><a id="contactEmail" href="#"></a></div>
+        <div class="contact-item"><span class="muted">GitHub</span><a id="contactGithub" href="#" target="_blank" rel="noopener"></a></div>
+        <div class="contact-item"><span class="muted">Location</span><span id="contactLocation"></span></div>
+      </div>
+    </section>
+
+    <section id="chatbot" class="section">
+      <h2>AI Chatbot</h2>
+      <p class="muted">Ask me about my skills, projects or background. Answers come from the information on this portfolio.</p>
+      <div class="chat-box">
+        <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+        <form id="chatForm" class="chat-form">
+          <input id="chatInput" type="text" placeholder="Type a question, e.g. What projects have you built?" autocomplete="off" aria-label="Your question" />
+          <button type="submit" id="chatSend" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p id="footerText"></p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
